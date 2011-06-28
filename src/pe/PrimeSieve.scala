@@ -15,4 +15,8 @@ class PrimeSieve(upto: Int) {
 		p+=1
 	}
 	def isPrime(test: Int) : Boolean = sieve(test)
+	
+	def divides(x:Int)(y:Int) = x % y == 0
+	
+	def primeDivisors(of: Int) = (2 to of toList).filter(isPrime).filter(divides(of))
 }

@@ -16,4 +16,25 @@ class PrimeSieveTest {
 	    }
 	  }
 	}
+	
+	@Test def twoHasOnlyOneDivisor(){
+	  val ps = new PrimeSieve(100)
+	  val divisors = ps.primeDivisors(2)
+	  Assert.assertEquals(1,divisors.length)
+	  Assert.assertEquals(List(2),divisors)
+	}
+	
+	@Test def primesHaveOnlyOneDivisor(){
+	  val ps = new PrimeSieve(100)
+	  val divisors = ps.primeDivisors(13)
+	  Assert.assertEquals(1,divisors.length)
+	  Assert.assertEquals(List(13),divisors)
+	}
+	
+	@Test def compundsHaveTheRightDivisor(){
+	  val ps = new PrimeSieve(100)
+	  val divisors = ps.primeDivisors(30)
+	  Assert.assertEquals(3,divisors.length)
+	  Assert.assertEquals(List(2,3,5),divisors)
+	}
 }
