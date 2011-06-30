@@ -37,4 +37,7 @@ class PrimeSieveTest {
 	  Assert.assertEquals(3,divisors.length)
 	  Assert.assertEquals(List(2,3,5),divisors)
 	}
+	
+	@Test def primePowerOf8() = Assert.assertEquals(3, PrimeSieve.primePower(8,2))
+	@Test def primePowerOf34() = Assert.assertEquals(1, PrimeSieve.primePower(34,17))
 }

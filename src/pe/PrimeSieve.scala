@@ -1,5 +1,21 @@
 package pe
 
+
+object PrimeSieve{
+  def primePower(of:Int, p:Int) = {
+	  var i = 0
+	  var q = p
+	  while(divides(of)(q)){
+	    i+=1
+	    q*=p
+	  }
+	  i
+	}
+  
+	private def divides(x:Int)(y:Int) = x % y == 0
+}
+
+
 class PrimeSieve(upto: Int) {
 	val sieve = new Array[Boolean](upto)
 	for(i <- 2 until upto) sieve(i) = true
@@ -15,8 +31,5 @@ class PrimeSieve(upto: Int) {
 		p+=1
 	}
 	def isPrime(test: Int) : Boolean = sieve(test)
-	
-	def divides(x:Int)(y:Int) = x % y == 0
-	
-	def primeDivisors(of: Int) = (2 to of toList).filter(isPrime).filter(divides(of))
+	def primeDivisors(of: Int) = (2 to of toList).filter(isPrime).filter(PrimeSieve.divides(of))
 }
